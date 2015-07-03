@@ -5,15 +5,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+
+    Button b;
+    TextView field;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView field = (TextView)findViewById(R.id.text);
-        field.setText(stringFromJNI());
+        field = (TextView)findViewById(R.id.text);
+
+        b = (Button) findViewById(R.id.get);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                field.setText(stringFromJNI());
+            }
+        });
     }
 
     @Override
