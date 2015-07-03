@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView field = (TextView)findViewById(R.id.text);
-        //field.setText(stringFromJNI());
+        field.setText(stringFromJNI());
     }
 
     @Override
@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     /*ndk*/
     public native String stringFromJNI();
     static {
-        System.load("ndk-sample");
+        System.loadLibrary("ndk-sample");
     }
     /*ndk*/
 }
